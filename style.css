@@ -1,0 +1,64 @@
+/* Tombol efek cyber */
+.button-cyber {
+    background: transparent;
+    border: 2px solid #ff0044;
+    padding: 10px 20px;
+    color: #ff0044;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 5px #ff0044, 0 0 10px #ff0044 inset;
+  }
+  
+  .button-cyber:hover {
+    background: #ff0044;
+    color: black;
+    box-shadow: 0 0 20px #ff0044, 0 0 40px #ff0044 inset;
+    transform: scale(1.05);
+  }
+  
+  /* Card dengan border animasi */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(45deg, red, transparent, #ff0044, transparent, red);
+    z-index: -1;
+    animation: borderFlow 2s linear infinite;
+  }
+  
+  @keyframes borderFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+  }
+  
+  /* Hover animasi teks di card */
+  .card p {
+    color: #f00;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+  }
+  
+  .card:hover p {
+    color: white;
+    text-shadow: 0 0 5px red;
+  }
+  
+  /* Smooth fade in semua elemen */
+  body * {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }

@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zion UI</title>
+<p class="credit">@prannkster</p>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  background-color: #000;
+  color: #f00;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  text-shadow: 0 0 5px #f00, 0 0 10px #900;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.card {
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid #f00;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px #f00;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px #900;
+}
+
+.glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(255, 0, 0, 0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: glitch-move 0.2s infinite;
+  z-index: 1;
+}
+
+@keyframes glitch-move {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(1px, -1px); }
+  50% { transform: translate(-1px, 1px); }
+  75% { transform: translate(1px, 1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.pixel-anim {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: red;
+  animation: float 10s infinite linear;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(10vw);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="glitch"></div>
+  <h1>Zion</h1>
+  <div class="container">
+    <div class="card"><img src="image 1.jpg" alt="image 1" /><p</p></div>
+    <div class="card"><img src="image 2.jpg" alt="image 2" /><p></p></div>
+    <div class="card"><img src="image 3.jpg" alt="image 3" /><p></p></div>
+    <div class="card"><img src="image 4.jpg" alt="image 4" /><p></p></div>
+    <div class="card"><img src="image 5.jpg" alt="image 5" /><p></p></div>
+    <div class="card"><img src="image 6.jpg" alt="image 6" /><p></p></div>
+  </div>
+  <script>
+    // Generate pixel particles for background
+    const body = document.body;
+    for (let i = 0; i < 100; i++) {
+      let pixel = document.createElement('div');
+      pixel.classList.add('pixel-anim');
+      pixel.style.left = Math.random() * 100 + 'vw';
+      pixel.style.top = Math.random() * 100 + 'vh';
+      pixel.style.animationDelay = Math.random() * 10 + 's';
+      pixel.style.backgroundColor = Math.random() > 0.5 ? 'red' : '#f00';
+      body.appendChild(pixel);
+    }
+  </script>
+</body>
+</html>
+<audio id="hoverSound" src="assets/hover.mp3" preload="auto"></audio>
+<audio id="clickSound" src="assets/click.mp3" preload="auto"></audio>
+<script src="script.js"></script>
